@@ -30,10 +30,10 @@ function ProviderFields({ request, onChange }) {
         </Field>
       </div>
       <Field label="System prompt" hint="Optional">
-        <textarea className="textarea" style={{ minHeight: 96 }} maxLength={2000} value={request.system_prompt} onChange={(e) => onChange({ ...request, system_prompt: e.target.value })} placeholder="Define behavior, role, or constraints..." />
+        <textarea className="textarea" style={{ minHeight: 96 }} maxLength={2000} value={request.system_prompt} onChange={(e) => onChange({ ...request, system_prompt: e.target.value })} placeholder="Define behavior, role, or constraints..." spellCheck={false} />
       </Field>
       <Field label="Prompt" hint={`${request.prompt.length} / 2000`}>
-        <textarea className="textarea" maxLength={2000} value={request.prompt} onChange={(e) => onChange({ ...request, prompt: e.target.value })} placeholder="What should the model do?" />
+        <textarea className="textarea" maxLength={2000} value={request.prompt} onChange={(e) => onChange({ ...request, prompt: e.target.value })} placeholder="What should the model do?" spellCheck={false} />
       </Field>
       <div className="form-grid">
         <Field label="Temperature" hint="0.0 – 2.0">
