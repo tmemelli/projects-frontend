@@ -398,6 +398,12 @@
   box-shadow: 0 1px 0 rgba(255,255,255,0.025) inset;
 }
 
+.panel__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .panel__header {
   display: flex;
   justify-content: space-between;

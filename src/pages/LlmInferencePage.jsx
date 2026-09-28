@@ -162,10 +162,37 @@ export default function LlmInferencePage() {
       <div className="workspace">
         <section className="panel panel--form">
           <div className="panel__header">
-            <div><h2>{title}</h2><p>{mode === "single" ? "Inspect one inference request end to end." : "Execute up to five independent requests concurrently."}</p></div>
-            <div className="tabs" role="tablist">
-              <button className={`tab${mode === "single" ? " is-active" : ""}`} type="button" onClick={() => switchMode("single")}>Single</button>
-              <button className={`tab${mode === "batch" ? " is-active" : ""}`} type="button" onClick={() => switchMode("batch")}>Batch</button>
+            <div>
+              <h2>{title}</h2>
+              <p>
+                {mode === "single"
+                  ? "Inspect one inference request end to end."
+                  : "Execute multiple independent inference requests concurrently."}
+              </p>
+            </div>
+
+            <div className="panel__header-actions">
+              {mode === "batch" ? (
+                <span className="tech-pill">Up to 5 requests</span>
+              ) : null}
+
+              <div className="tabs" role="tablist">
+                <button
+                  className={`tab${mode === "single" ? " is-active" : ""}`}
+                  type="button"
+                  onClick={() => switchMode("single")}
+                >
+                  Single
+                </button>
+
+                <button
+                  className={`tab${mode === "batch" ? " is-active" : ""}`}
+                  type="button"
+                  onClick={() => switchMode("batch")}
+                >
+                  Batch
+                </button>
+              </div>
             </div>
           </div>
 
