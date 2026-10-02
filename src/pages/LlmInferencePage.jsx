@@ -30,17 +30,17 @@ function ProviderFields({ request, onChange }) {
         </Field>
       </div>
       <Field label="System prompt" hint="Optional">
-        <textarea className="textarea" style={{ minHeight: 96 }} maxLength={2000} value={request.system_prompt} onChange={(e) => onChange({ ...request, system_prompt: e.target.value })} placeholder="Define behavior, role, or constraints..." spellCheck={false} />
+        <textarea className="textarea" style={{ minHeight: 96 }} maxLength={12000} value={request.system_prompt} onChange={(e) => onChange({ ...request, system_prompt: e.target.value })} placeholder="Define behavior, role, or constraints..." spellCheck={false} />
       </Field>
-      <Field label="Prompt" hint={`${request.prompt.length} / 2000`}>
-        <textarea className="textarea" maxLength={2000} value={request.prompt} onChange={(e) => onChange({ ...request, prompt: e.target.value })} placeholder="What should the model do?" spellCheck={false} />
+      <Field label="Prompt" hint={`${request.prompt.length} / 20000`}>
+        <textarea className="textarea" maxLength={20000} value={request.prompt} onChange={(e) => onChange({ ...request, prompt: e.target.value })} placeholder="What should the model do?" spellCheck={false} />
       </Field>
       <div className="form-grid">
         <Field label="Temperature" hint="0.0 – 2.0">
           <input className="input" type="number" min="0" max="2" step="0.1" value={request.temperature} onChange={(e) => onChange({ ...request, temperature: Number(e.target.value) })} />
         </Field>
-        <Field label="Max tokens" hint="1 – 500">
-          <input className="input" type="number" min="1" max="500" step="1" value={request.max_tokens} onChange={(e) => onChange({ ...request, max_tokens: Number(e.target.value) })} />
+        <Field label="Max tokens" hint="1 – 2000">
+          <input className="input" type="number" min="1" max="2000" step="1" value={request.max_tokens} onChange={(e) => onChange({ ...request, max_tokens: Number(e.target.value) })} />
         </Field>
       </div>
     </>
@@ -64,7 +64,7 @@ function validateRequest(request, prefix = "") {
   if (!request.model) return `${prefix}Please select a model.`;
   if (!request.prompt.trim()) return `${prefix}Please enter a prompt.`;
   if (request.temperature < 0 || request.temperature > 2) return `${prefix}Temperature must be between 0 and 2.`;
-  if (!Number.isInteger(request.max_tokens) || request.max_tokens < 1 || request.max_tokens > 500) return `${prefix}Max tokens must be an integer between 1 and 500.`;
+  if (!Number.isInteger(request.max_tokens) || request.max_tokens < 1 || request.max_tokens > 2000) return `${prefix}Max tokens must be an integer between 1 and 2000.`;
   return "";
 }
 

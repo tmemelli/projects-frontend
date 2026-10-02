@@ -438,6 +438,7 @@
 }
 
 .form-grid + .field,
+.form-grid + .field + .field,
 .field + .form-grid {
   margin-top: 18px;
 }
