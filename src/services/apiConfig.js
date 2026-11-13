@@ -7,4 +7,7 @@ export const API_CONFIG = {
   llmInference: cleanBaseUrl(
     import.meta.env.VITE_LLM_INFERENCE_API_URL || "https://llm-inference-service-g4os.onrender.com",
   ),
+  documentRag: cleanBaseUrl(
+    import.meta.env.VITE_DOCUMENT_RAG_API_URL || "https://document-rag-service.onrender.com",
+  ),
 };

@@ -107,6 +107,10 @@ button {
   padding-top: 72px;
 }
 
+.site-main--rag {
+  width: min(1460px, calc(100% - 40px));
+}
+
 h1,
 h2,
 h3,

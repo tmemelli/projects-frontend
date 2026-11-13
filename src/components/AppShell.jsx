@@ -10,6 +10,7 @@ const navItems = [
 export default function AppShell({ children }) {
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const isDocumentRag = location.pathname.startsWith("/document-rag");
 
   return (
     <div className="app-shell">
@@ -76,7 +77,15 @@ export default function AppShell({ children }) {
         </div>
       </header>
 
-      <main className={isHome ? "site-main site-main--home" : "site-main"}>{children}</main>
+      <main
+        className={[
+          "site-main",
+          isHome ? "site-main--home" : "",
+          isDocumentRag ? "site-main--rag" : "",
+        ].filter(Boolean).join(" ")}
+      >
+        {children}
+      </main>
 
       <footer className="site-footer">
         <div className="site-footer__inner">
