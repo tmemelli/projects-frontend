@@ -158,7 +158,16 @@ function AuthScreen({ onAuthenticated }) {
 
   return (
     <div className="rag-auth-page">
-      <Link className="back-link rag-auth-back" to="/">← All projects</Link>
+      <div className="rag-auth-topline">
+        <Link className="back-link rag-auth-back" to="/">
+          ← All projects
+        </Link>
+
+        <span className="status-badge status-badge--live">
+          <span className="status-dot" />
+          Live
+        </span>
+      </div>
 
       <div className="rag-auth-layout">
         <section className="rag-auth-intro">
@@ -1121,7 +1130,7 @@ function Workspace({ user, onSignOut }) {
               <span className="rag-section-kicker">Document RAG · Workspace</span>
               <h1>Knowledge workspace</h1>
             </div>
-            <span className="rag-workspace-live"><span className="rag-live-dot" /> Authenticated</span>
+            <span className="rag-workspace-live"><span className="rag-live-dot" /> Live · Authenticated</span>
           </div>
         </div>
 

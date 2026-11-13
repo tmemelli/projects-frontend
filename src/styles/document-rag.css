@@ -24,9 +24,17 @@
   margin: 0 auto;
 }
 
+.rag-auth-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 42px;
+}
+
 .rag-auth-back {
   display: inline-flex;
-  margin-bottom: 42px;
+  margin-bottom: 0;
 }
 
 .rag-auth-layout {
@@ -1799,7 +1807,7 @@
 }
 
 @media (max-width: 620px) {
-  .rag-auth-back {
+  .rag-auth-topline {
     margin-bottom: 28px;
   }
 

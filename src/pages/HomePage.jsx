@@ -23,9 +23,19 @@ const projects = [
     description: "A production-oriented retrieval pipeline for document ingestion, embeddings, vector search, context assembly, and grounded answers.",
     tech: ["PostgreSQL", "pgvector", "Embeddings", "RAG"],
     to: "/document-rag",
-    status: "In development",
+    status: "Live",
   },
 ];
+
+const liveProjectCount = projects.filter(
+  (project) => project.status === "Live",
+).length;
+
+const developmentProjectCount = projects.length - liveProjectCount;
+
+function formatProjectCount(value) {
+  return String(value).padStart(2, "0");
+}
 
 export default function HomePage() {
   return (
@@ -50,8 +60,15 @@ export default function HomePage() {
               service and presented through one consistent interface.
             </p>
             <div className="hero-metrics">
-              <div className="hero-metric"><strong>02</strong><span>Live systems</span></div>
-              <div className="hero-metric"><strong>01</strong><span>In development</span></div>
+              <div className="hero-metric">
+                <strong>{formatProjectCount(liveProjectCount)}</strong>
+                <span>Live systems</span>
+              </div>
+
+              <div className="hero-metric">
+                <strong>{formatProjectCount(developmentProjectCount)}</strong>
+                <span>In development</span>
+              </div>
             </div>
           </aside>
         </div>
