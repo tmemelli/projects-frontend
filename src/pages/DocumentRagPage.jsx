@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { warmUpLlmInferenceService } from "../services/llmInferenceApi";
 import {
   DocumentRagApiError,
   clearDocumentRagAccessToken,
@@ -134,7 +133,6 @@ function AuthScreen({ onAuthenticated }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    warmUpLlmInferenceService();
     setError("");
 
     if (mode === "signup" && password !== confirmation) {
