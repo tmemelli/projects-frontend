@@ -158,8 +158,8 @@ function AuthScreen({ onAuthenticated }) {
 
   return (
     <div className="rag-auth-page">
-      <div className="rag-auth-topline">
-        <Link className="back-link rag-auth-back" to="/">
+      <div className="project-hero__topline">
+        <Link className="back-link" to="/">
           ← All projects
         </Link>
 

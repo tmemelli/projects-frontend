@@ -20,21 +20,8 @@
 
 /* AUTH */
 .rag-auth-page {
-  max-width: 1120px;
+  width: min(var(--container), 100%);
   margin: 0 auto;
-}
-
-.rag-auth-topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 42px;
-}
-
-.rag-auth-back {
-  display: inline-flex;
-  margin-bottom: 0;
 }
 
 .rag-auth-layout {
