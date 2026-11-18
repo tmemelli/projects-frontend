@@ -1242,7 +1242,7 @@
   min-height: 0;
   overflow-y: auto;
   margin-top: 18px;
-  padding-right: 2px;
+  padding-right: 14px;
   scrollbar-width: thin;
   scrollbar-color: rgba(160, 184, 214, 0.2) transparent;
 }
