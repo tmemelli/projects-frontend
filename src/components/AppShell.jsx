@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
+import ServiceHealthMonitor from "./ServiceHealthMonitor";
 
 const navItems = [
   { to: "/", label: "Overview", end: true },
@@ -73,6 +74,8 @@ export default function AppShell({ children }) {
               Website
               <span aria-hidden="true">↗</span>
             </a>
+
+            <ServiceHealthMonitor />
           </div>
         </div>
       </header>

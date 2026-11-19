@@ -112,6 +112,223 @@
   box-shadow: 0 0 16px rgba(103, 232, 177, 0.65);
 }
 
+/* GLOBAL BACKEND HEALTH MONITOR */
+.service-health {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.service-health__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 8px 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--text-soft);
+  background: rgba(125, 211, 252, 0.035);
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.service-health__trigger:hover,
+.service-health__trigger[aria-expanded="true"] {
+  border-color: rgba(125, 211, 252, 0.35);
+  background: rgba(125, 211, 252, 0.08);
+}
+
+.service-health__trigger:focus-visible,
+.service-health__refresh:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.service-health__count {
+  color: var(--success);
+  font-size: 0.64rem;
+}
+
+.service-health__chevron {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 0.8;
+}
+
+.service-health__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.service-health__dot--ready {
+  background: var(--success);
+  box-shadow: 0 0 10px rgba(103, 232, 177, 0.45);
+}
+
+.service-health__dot--checking,
+.service-health__dot--waking,
+.service-health__dot--unverified {
+  background: var(--warning);
+}
+
+.service-health__dot--unavailable {
+  background: var(--danger);
+}
+
+.service-health__panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 40;
+  width: min(350px, calc(100vw - 28px));
+  max-height: min(78dvh, 600px);
+  overflow-y: auto;
+  padding: 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: rgba(15, 21, 30, 0.98);
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(18px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(160, 184, 214, 0.25) transparent;
+}
+
+.service-health__heading,
+.service-health__item-heading,
+.service-health__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.service-health__heading {
+  align-items: flex-start;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--line);
+}
+
+.service-health__heading > div,
+.service-health__footer > div {
+  display: grid;
+  gap: 5px;
+}
+
+.service-health__heading strong {
+  color: var(--text);
+  font-size: 0.81rem;
+}
+
+.service-health__heading > div > span,
+.service-health__footer > div > span {
+  color: var(--muted);
+  font-size: 0.64rem;
+}
+
+.service-health__overall {
+  max-width: 150px;
+  color: var(--muted-strong);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.service-health__overall--ready { color: var(--success); }
+.service-health__overall--checking,
+.service-health__overall--unverified { color: var(--warning); }
+.service-health__overall--unavailable { color: var(--danger); }
+
+.service-health__list {
+  display: grid;
+}
+
+.service-health__item {
+  min-width: 0;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.service-health__item-heading strong {
+  color: var(--text-soft);
+  font-size: 0.75rem;
+}
+
+.service-health__state {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted-strong);
+  font-size: 0.64rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.service-health__state--ready { color: var(--success); }
+.service-health__state--checking,
+.service-health__state--waking,
+.service-health__state--unverified { color: var(--warning); }
+.service-health__state--unavailable { color: var(--danger); }
+
+.service-health__item p {
+  margin: 7px 0 4px;
+  color: var(--muted-strong);
+  font-size: 0.65rem;
+  line-height: 1.55;
+}
+
+.service-health__item small {
+  color: var(--muted);
+  font-size: 0.6rem;
+}
+
+.service-health__footer {
+  padding-top: 15px;
+}
+
+.service-health__timer {
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.service-health__refresh {
+  flex: 0 0 auto;
+  padding: 9px 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 0.67rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.service-health__refresh:hover:not(:disabled) {
+  border-color: rgba(125, 211, 252, 0.35);
+  background: rgba(125, 211, 252, 0.07);
+}
+
+.service-health__refresh:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.service-health__note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.62rem;
+  line-height: 1.6;
+}
+
 .site-footer {
   position: relative;
   z-index: 1;
@@ -1646,11 +1863,18 @@
   }
 }
 
-@media (max-width: 980px) {
-  .site-header__inner { grid-template-columns: auto 1fr; }
+@media (max-width: 1160px) {
+  .service-health__trigger-label,
+  .service-health__count { display: none; }
+}
+
+@media (max-width: 1060px) {
+  .site-header__inner { grid-template-columns: auto 1fr; padding-top: 10px; }
   .site-nav { order: 3; grid-column: 1 / -1; justify-content: flex-start; overflow-x: auto; padding-bottom: 10px; }
-  .site-header__inner { padding-top: 10px; }
   .header-links { grid-column: 2; grid-row: 1; }
+}
+
+@media (max-width: 980px) {
   .home-hero__grid, .project-hero__body { grid-template-columns: 1fr; gap: 34px; }
   .home-hero__aside { border-left: 0; border-top: 1px solid var(--line); padding: 24px 0 0; }
   .project-hero__aside { justify-content: flex-start; }
@@ -1676,4 +1900,13 @@
   .form-grid, .result-columns, .meta-row, .batch-summary { grid-template-columns: 1fr; }
   .panel__header, .panel__body { padding-left: 18px; padding-right: 18px; }
   .site-footer__inner { flex-direction: column; align-items: flex-start; justify-content: center; }
+}
+
+@media (max-width: 440px) {
+  .site-header__inner { gap: 8px; }
+  .header-links { gap: 4px; }
+  .header-status { padding: 7px 6px; gap: 3px; font-size: 0.64rem; }
+  .header-status > span { display: none; }
+  .service-health__trigger { min-height: 32px; padding: 7px 8px; gap: 5px; }
+  .service-health__panel { padding: 15px; }
 }
